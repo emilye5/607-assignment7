@@ -1,0 +1,42 @@
+---
+title: "Assignment 7: HTML and JSON"
+author: "Emily El Mouaquite"
+format: html
+editor: visual
+---
+
+## Approach
+
+Three books on Middle Eastern/ North African Art:
+
+1.  Art Across the Arabian Gulf
+
+    -   Authors: Aram Alajaji, Cecelia Ruggeri, Nada Alaradi, Sultan Sood Al Qassemi, Abdulrahman Al-Soliman, Basma Alshathry, Shadin Albulaihed, Safiyah Abaalkhailis
+
+    -   Publication Year: 2025
+
+    -   Publisher: Kaph Books
+
+    -   ISBN: 9786148035999
+
+2.  Amazigh Arts in Morocco: Women Shaping Berber Identity
+
+    -   Author: Cynthia J. Becker
+
+    -   Publication Year: 2014
+
+    -   Publisher: University of Texas Press
+
+    -   ISBN: 9780292756199
+
+3.  Syria Speaks: Art and Culture from the Frontline
+
+    -   Authors: Malu Halasa, Zaher Omareen, Nawara Mahfoud
+
+    -   Publication Year: 2014
+
+    -   Publisher: Saqi Books
+
+    -   ISBN: 9780863567872
+
+For each book, I will record the above information (title, author(s), publication year, publisher and ISBN) in both a HTML table and a JSON file. Then, I will be able to use the HTML and JSON files to create two separate data frames in R, and use the identical() base R command to compare them. If this comes back false, I will do more investigation into the structures of the data frames to determine differences in elements like data types or formatting.
