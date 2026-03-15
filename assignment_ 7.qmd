@@ -40,3 +40,38 @@ Three books on Middle Eastern/ North African Art:
     -   ISBN: 9780863567872
 
 For each book, I will record the above information (title, author(s), publication year, publisher and ISBN) in both a HTML table and a JSON file. Then, I will be able to use the HTML and JSON files to create two separate data frames in R, and use the identical() base R command to compare them. If this comes back false, I will do more investigation into the structures of the data frames to determine differences in elements like data types or formatting.
+
+## Code Base
+```{r}
+#load rvest to read html and jsonlite to read json
+library(rvest)
+library(jsonlite)
+```
+I created separate HTML and JSON files with the information on the three books above and uploaded them to my Github repository for this assignment.
+```{r}
+#create data frame from HTML
+htmlUrl <- "https://raw.githubusercontent.com/emilye5/607-assignment7/refs/heads/main/books.html"
+htmlPage <- read_html(htmlUrl)
+table <- html_table(htmlPage)
+htmlDf <- table[[1]]
+#create data frame from JSON
+jsonUrl <- "https://raw.githubusercontent.com/emilye5/607-assignment7/refs/heads/main/books.json"
+jsonDf <- fromJSON(jsonUrl)$books
+```
+Check to see if they are identical:
+```{r}
+identical(htmlDf, jsonDf)
+```
+Since this returns false, and they are not identical, more investigation is needed in order to see where the data frames differ.
+```{r}
+all.equal(htmlDf, jsonDf)
+```
+
+## Conclusion
+Running all.equal returns the exact differences between the data frame derived from the HTML table and the one derived from the JSON. The first difference that this returns is that 5 of the column names are different. This is something that I did intentionally to see what the result would be when comparing the data frames. In the HTML table, the column names begin with an upper case letter, while in the JSON file I left them all lowercase and used an underscore in publication_year instead of a space. The second difference is that the classes of both data frames are different. 
+```{r}
+class(htmlDf)
+class(jsonDf)
+```
+This returns that htmlDf is a tibble while jsonDf is a base R data frame. Upon doing research on why this might be, I found that the usage of html_table() from rvest returns a tibble to ensure compatibility with tidyverse. (Source: https://rvest.tidyverse.org/articles/rvest.html)
+The following difference goes hand in hand with this as it is saying that the actual strings that describe the classes are different. The next difference returned by all.equal() is that the author column in the HTMl data frame is a character vector, while in the JSON data frame it is a list. This is because the storage of multiple nested objects in JSON is an array. This seems to be repeated by the fifth returned difference. The final difference is that the ISBN column in the HTML data frame is numeric, while in the JSON data frame it is stored as a string, and the seventh returned difference repeats this. To further extend this work, one might transform these data frames so that they are identical by making the column names the same, and changing the data types. 
