@@ -1,0 +1,40 @@
+{
+    "books": [
+      {
+        "title": "Art Across the Arabian Gulf",
+        "author": [
+          "Aram Alajaji",
+          "Cecelia Ruggeri",
+          "Nada Alaradi",
+          "Sultan Sood Al Qassemi",
+          "Abdulrahman Al-Soliman",
+          "Basma Alshathry",
+          "Shadin Albulaihed",
+          "Safiyah Abaalkhailis"
+        ],
+        "publication_year": 2025,
+        "publisher": "Kaph Books",
+        "isbn": "9786148035999"
+      },
+      {
+        "title": "Amazigh Arts in Morocco: Women Shaping Berber Identity",
+        "author": [
+          "Cynthia J. Becker"
+        ],
+        "publication_year": 2014,
+        "publisher": "University of Texas Press",
+        "isbn": "9780292756199"
+      },
+      {
+        "title": "Syria Speaks: Art and Culture from the Frontline",
+        "author": [
+          "Malu Halasa",
+          "Zaher Omareen",
+          "Nawara Mahfoud"
+        ],
+        "publication_year": 2014,
+        "publisher": "Saqi Books",
+        "isbn": "9780863567872"
+      }
+    ]
+  }
